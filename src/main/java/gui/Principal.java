@@ -142,9 +142,15 @@ public class Principal extends javax.swing.JFrame {
         db = new Utils(username, password);
         
         db.startConnection();
-        DBWindow dbWindow = new DBWindow(this, true, db);
-        dbWindow.setVisible(true);
-        db.closeConnection();
+        if(db.isConnected()) {
+            
+            this.setVisible(false);
+            DBWindow dbWindow = new DBWindow(this, true, db);
+            dbWindow.setVisible(true);
+            this.setVisible(true);
+            
+            db.closeConnection();
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
