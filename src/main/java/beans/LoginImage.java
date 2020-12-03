@@ -20,7 +20,8 @@ public class LoginImage extends JPanel {
     public void paintComponent(Graphics g) {
         try {
             super.paintComponent(g);
-            Image backgroundImage = ImageIO.read(new File("./images/user-login.png"));
+            File img = new File("images/user-login.png");
+            Image backgroundImage = ImageIO.read(img);
             int w = getWidth();
             int h = getHeight();
             g.drawImage(backgroundImage, 0, 0, w, h, null);
